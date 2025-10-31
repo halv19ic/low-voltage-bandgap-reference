@@ -25,29 +25,46 @@ The circuit works by:
 
 ## Applications
 
-- Low-power sensors# Table of Contents
-
-1. Introduction ................................................................................................................................... 3
-
-2. Overview of Bandgap Theory ........................................................................................................ 3
-
-3. Temperature-Independent References ........................................................................................... 4
-   3.1 Negative Temperature Coefficient ........................................................................................... 4
-   3.2 Positive Temperature Coefficient ........................................................................................... 5
-
-4. Bandgap Reference ..................................................................................................................... 5
-   4.1 Low-Voltage Bandgap Reference .......................................................................................... 6
-   4.2 Reference Current ................................................................................................................ 8
-
-5. Circuit Design and Simulation Using Cadence Software ................................................................ 8
-   5.1 Parameter Calculations ......................................................................................................... 8
-   5.2 Simulation Results .............................................................................................................. 12
-
-CONCLUSION ................................................................................................................................ 16
-
-REFERENCES ............................................................................................................................... 16
-
-APPENDIX ................................................................................................................................... 17
+- Low-power sensors
 - Mobile devices
 - Embedded systems
 - Modern CMOS technologies
+
+# Table of Contents
+
+1. [Introduction](#introduction)
+
+2. [Overview of Bandgap Theory](#overview-of-bandgap-theory)
+
+3. [Temperature-Independent References](#temperature-independent-references)
+   - [3.1 Negative Temperature Coefficient](#31-negative-temperature-coefficient)
+
+   - [3.2 Positive Temperature Coefficient](#32-positive-temperature-coefficient)
+
+4. [Bandgap Reference](#bandgap-reference)
+   - [4.1 Low-Voltage Bandgap Reference](#41-low-voltage-bandgap-reference)
+   - [4.2 Reference Current](#42-reference-current)
+
+5. [Circuit Design and Simulation Using Cadence Software](#circuit-design-and-simulation-using-cadence-software)
+   - [5.1 Parameter Calculations](#51-parameter-calculations)
+   - [5.2 Simulation Results](#52-simulation-results)
+
+[CONCLUSION](#conclusion)
+
+[REFERENCES](#references)
+
+[APPENDIX](#appendix)
+
+
+## Overview of Bandgap Theory
+
+A bandgap reference circuit generates a stable, temperature-independent voltage used in most analog and mixed-signal ICs. The fundamental principle behind its operation involves:
+
+- Combining two signals with opposite temperature coefficients (TC):
+  - Positive Temperature Coefficient (PTAT)
+  - Negative Temperature Coefficient (CTAT)
+- Summing these voltages or currents and converting them through a resistor
+- Resulting in a voltage that remains nearly constant over temperature
+
+This approach enables the circuit to maintain voltage stability across varying temperature conditions, making it essential for precision analog applications.
+
