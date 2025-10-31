@@ -187,3 +187,29 @@ V_T ln(I_D3/I_S1) = V_T ln(I_D4/I_S2) + |I_D4|R_1
   ```
 
 This implementation achieves stable performance while operating at lower supply voltages compared to traditional bandgap references.
+
+### 4.2 Reference Current
+
+![alt text](image-8.png)
+### 4.2 Reference Current
+
+After achieving stable ID4 current, this reference is mirrored through ID5 to generate the output voltage VBG. The process involves:
+![alt text](image-7.png)
+
+1. **Temperature Independence**:
+- Setting (R2/R1)·VT·ln(n) ≈ 17.2VT
+- This makes temperature coefficient (TC) of ID4 = 0
+- Ensures stable current reference across temperature range
+
+2. **Current Mirroring**:
+- ID4 is copied through M5
+- Generated voltage has TC = 0
+- Output voltage can be lower than traditional 1.25V limit
+
+3. **Advantages**:
+- Flexible output voltage scaling
+- Maintains temperature stability
+- Operates below conventional bandgap voltage limits
+- Suitable for modern low-voltage applications
+
+The final output voltage VBG achieves temperature independence while allowing operation at reduced supply voltages through careful selection of resistance ratios and current mirroring.
