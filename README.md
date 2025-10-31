@@ -49,11 +49,8 @@ The circuit works by:
    - [5.1 Parameter Calculations](#51-parameter-calculations)
    - [5.2 Simulation Results](#52-simulation-results)
 
-[CONCLUSION](#conclusion)
 
-[REFERENCES](#references)
 
-[APPENDIX](#appendix)
 
 
 ## Overview of Bandgap Theory
