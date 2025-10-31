@@ -213,3 +213,30 @@ After achieving stable ID4 current, this reference is mirrored through ID5 to ge
 - Suitable for modern low-voltage applications
 
 The final output voltage VBG achieves temperature independence while allowing operation at reduced supply voltages through careful selection of resistance ratios and current mirroring.
+
+## 5. Circuit Design and Simulation Using Cadence Software
+
+### 5.1 Parameter Calculations
+
+![alt text](image-9.png)
+![alt text](image-10.png)
+![alt text](image-11.png)
+According to the calculated results, the following parameters are selected:
+![alt text](image-12.png)
+
+### 5.2 Simulation Results
+Initially, we simulated the PTAT and CTAT circuits, operating over a temperature range from –40 °C to 125 °C.
+![alt text](image-13.png)
+![alt text](image-14.png)
+![alt text](image-15.png)
+The simulation results show that the PTAT voltage increases and the CTAT voltage decreases linearly with temperature, consistent with theoretical expectations.
+The two curves intersect at around 80 °C, which represents the temperature-stable reference point.
+This design is suitable for implementing a bandgap reference with good thermal stability.
+A PNP BJT is added to generate the reference voltage (Vref), and a resistor (R3) is used as a voltage divider.
+![alt text](image-16.png)
+![alt text](image-17.png)
+![alt text](image-18.png)
+The Vref curve (in red) remains relatively flat over a wide temperature range, indicating that the reference voltage is well stabilized with a near-zero temperature coefficient.
+The CTAT curve (in blue) decreases linearly with temperature, consistent with the typical behavior of the V_BE voltage.
+These results confirm that the bandgap circuit operates effectively and achieves the desired temperature compensation.
+The simulated Vref is approximately 0.75 V, slightly lower than the calculated value of 0.79 V.
