@@ -102,7 +102,6 @@ The temperature coefficient of V_BE can be calculated by temperature derivative:
 
 This negative TC characteristic, where V_BE decreases by -1.5 mV/K as temperature rises, can be combined with a positive TC to create a temperature-independent voltage reference.
 
-// ...existing code...
 
 ### 3.2 Positive Temperature Coefficient
 ![alt text](image-1.png)
@@ -124,4 +123,67 @@ The voltage difference ΔV_BE is proportional to absolute temperature:
 
 The temperature coefficient of ΔV_BE can be calculated through temperature derivative, showing a positive relationship with temperature changes.
 
-// ...existing code...
+
+## Bandgap Reference
+
+Using the negative-TC and positive-TC voltages discussed above, we can develop a zero temperature coefficient reference circuit.
+
+The fundamental equation is:
+```
+V_ref = α₁V_BE + α₂(V_T ln(n))
+```
+
+Where:
+- ∂V_BE/∂T ≈ -1.5 mV/K (negative TC)
+- ∂V_T/∂T ≈ +0.087 mV/K (positive TC)
+- For α₁ = 1, we get α₂ln(n) ≈ 17.2
+
+This results in:
+```
+V_ref ≈ V_BE + 17.2V_T
+     ≈ 1.25V
+```
+
+Key considerations:
+- Traditional bandgap voltage is typically 1.2-1.25V
+- This voltage was suitable for older high-voltage technologies
+- Modern CMOS processes operate at 1.0-1.2V supply
+- The 1.25V bandgap exceeds operating margins
+- This creates design challenges in modern low-voltage applications
+
+This voltage limitation drives the need for low-voltage bandgap reference designs.
+
+### 4.1 Low-Voltage Bandgap Reference
+
+This design uses a current-mode approach suitable for low-voltage applications. The core concept involves:
+![alt text](image-4.png)
+
+1. **Basic Operation**:
+- Combines PTAT and CTAT currents
+- Sum of currents through a resistor generates reference voltage
+- Results in temperature-independent output voltage
+
+2. **Core Circuit Structure** (Figure 2a): ![alt text](image-6.png)
+- BJTs Q1 and Q2 with different emitter areas (ratio n)
+- Amplifier A1 adjusts M3 and M4 gate voltages
+- Balances voltages VX and VY to generate specific TC currents
+
+3. **Key Equations**:
+```
+V_BE1 = V_BE2 + |I_D4|R_1
+V_T ln(I_D3/I_S1) = V_T ln(I_D4/I_S2) + |I_D4|R_1
+|I_D4|R_1 = V_T ln(n)
+```
+
+4. **Temperature Independence** (Figure 2b): ![alt text](image-5.png)
+- Addition of R2, R3 resistors from points X, Y to ground
+- Based on Banba's architecture for low-voltage design
+- Minimum VDD requirements
+- Key relationships:
+  ```
+  V_X ≈ V_Y ≈ |V_BE1|
+  I_D3 = I_D4
+  I_C1 + |V_BE1|/R3 = I_C2 + |V_BE2|/R2
+  ```
+
+This implementation achieves stable performance while operating at lower supply voltages compared to traditional bandgap references.
